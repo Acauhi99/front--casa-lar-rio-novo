@@ -12,6 +12,7 @@ const App = () => {
         <Route path="/donations" element={<Donations />} />
         <Route path="/volunteers" element={<Volunteers />} /> #???
         <Route path="*" element={<NotFound />} />
+        {/* batata */}
       </Routes>
     </div>
   );
