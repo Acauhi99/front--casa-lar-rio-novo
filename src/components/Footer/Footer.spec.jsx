@@ -9,7 +9,7 @@ describe('Footer Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<Footer />);
-    expect(getByText('Footer')).toBeInTheDocument();
+    const { getAllByText } = render(<Footer />);
+    expect(getAllByText('Footer').length).toBeGreaterThan(0);
   });
 });

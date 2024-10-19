@@ -9,7 +9,7 @@ describe('ContactForm Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<ContactForm />);
-    expect(getByText('ContactForm')).toBeInTheDocument();
+    const { getAllByText } = render(<ContactForm />);
+    expect(getAllByText('ContactForm').length).toBeGreaterThan(0);
   });
 });

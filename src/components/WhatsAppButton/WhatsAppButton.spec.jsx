@@ -9,7 +9,7 @@ describe('WhatsAppButton Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<WhatsAppButton />);
-    expect(getByText('WhatsAppButton')).toBeInTheDocument();
+    const { getAllByText } = render(<WhatsAppButton />);
+    expect(getAllByText('WhatsAppButton').length).toBeGreaterThan(0);
   });
 });

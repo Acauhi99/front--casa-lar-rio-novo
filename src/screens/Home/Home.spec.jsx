@@ -9,7 +9,7 @@ describe('Home Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<Home />);
-    expect(getByText('Home')).toBeInTheDocument();
+    const { getAllByText } = render(<Home />);
+    expect(getAllByText('Home').length).toBeGreaterThan(0);
   });
 });

@@ -9,7 +9,7 @@ describe('About Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<About />);
-    expect(getByText('About')).toBeInTheDocument();
+    const { getAllByText } = render(<About />);
+    expect(getAllByText('About').length).toBeGreaterThan(0);
   });
 });

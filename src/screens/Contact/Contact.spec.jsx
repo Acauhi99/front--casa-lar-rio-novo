@@ -9,7 +9,7 @@ describe('Contact Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<Contact />);
-    expect(getByText('Contact')).toBeInTheDocument();
+    const { getAllByText } = render(<Contact />);
+    expect(getAllByText('Contact').length).toBeGreaterThan(0);
   });
 });

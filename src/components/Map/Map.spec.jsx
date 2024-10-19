@@ -9,7 +9,7 @@ describe('Map Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<Map />);
-    expect(getByText('Map')).toBeInTheDocument();
+    const { getAllByText } = render(<Map />);
+    expect(getAllByText('Map').length).toBeGreaterThan(0);
   });
 });

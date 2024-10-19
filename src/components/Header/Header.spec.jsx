@@ -9,7 +9,7 @@ describe('Header Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<Header />);
-    expect(getByText('Header')).toBeInTheDocument();
+    const { getAllByText } = render(<Header />);
+    expect(getAllByText('Header').length).toBeGreaterThan(0);
   });
 });

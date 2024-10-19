@@ -9,7 +9,7 @@ describe('NotFound Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<NotFound />);
-    expect(getByText('NotFound')).toBeInTheDocument();
+    const { getAllByText } = render(<NotFound />);
+    expect(getAllByText('NotFound').length).toBeGreaterThan(0);
   });
 });

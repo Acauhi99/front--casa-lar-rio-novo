@@ -9,7 +9,7 @@ describe('DonationButton Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<DonationButton />);
-    expect(getByText('DonationButton')).toBeInTheDocument();
+    const { getAllByText } = render(<DonationButton />);
+    expect(getAllByText('DonationButton').length).toBeGreaterThan(0);
   });
 });

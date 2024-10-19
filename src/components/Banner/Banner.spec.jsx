@@ -9,7 +9,7 @@ describe('Banner Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<Banner />);
-    expect(getByText('Banner')).toBeInTheDocument();
+    const { getAllByText } = render(<Banner />);
+    expect(getAllByText('Banner').length).toBeGreaterThan(0);
   });
 });

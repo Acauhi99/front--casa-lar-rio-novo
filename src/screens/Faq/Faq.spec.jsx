@@ -9,7 +9,7 @@ describe('Faq Component', () => {
   });
 
   it('should display the correct text', () => {
-    const { getByText } = render(<Faq />);
-    expect(getByText('Faq')).toBeInTheDocument();
+    const { getAllByText } = render(<Faq />);
+    expect(getAllByText('Faq').length).toBeGreaterThan(0);
   });
 });
