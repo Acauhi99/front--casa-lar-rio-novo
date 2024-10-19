@@ -1,0 +1,30 @@
+name: Continuous Integration to Production
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  issues:
+    types: [opened, reopened, edited, milestoned, demilestoned, closed, reopened]
+
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.x'
+
+      - name: Install, Test and Build
+        run: |
+          npm install
+          npm test
+          npm run build
