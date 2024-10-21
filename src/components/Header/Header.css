@@ -1,31 +1,35 @@
 .header {
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  .header-left {
-    /* Placeholder para o logo */
-  }
-  
-  .header-right ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .header-right li {
-    font-size: 18px;
-  }
-  
-  .header-right a {
-    text-decoration: none;
-    color: #154356;
-  }
-  
-  .header-right a:hover {
-    color: #5ab792; /* Cor ao passar o mouse, podemos mudar futuramente */
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.header-left {
+}
+
+.logo {
+  width: 120px;
+}
+
+.header-right ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.header-right ul li {
+  display: inline;
+}
+
+.header-right ul li a {
+  text-decoration: none;
+  color: #154356;
+  font-weight: bold;
+}
+
+.header-right ul li a:hover {
+  color: #5ab792; 
+  /* Lembra de trocar essa cor futuramente, coloquei apenas inicialmente*/
+}
