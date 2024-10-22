@@ -10,7 +10,7 @@ const App = () => {
         <Route path="/faq" element={<Faq />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/donations" element={<Donations />} />
-        <Route path="/volunteers" element={<Volunteers />} /> #???
+        <Route path="/volunteers" element={<Volunteers />} /> #??
         <Route path="*" element={<NotFound />} />
         {/* batata frita */}
       </Routes>
