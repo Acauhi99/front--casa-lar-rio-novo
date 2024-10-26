@@ -1,15 +1,30 @@
-import { render } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
-import { Header } from './Header';
+import { describe, test, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom'; // Necessário para o Link funcionar
+import Header from './Header';
 
-describe('Header Component', () => {
-  it('should render without crashing', () => {
-    const { container } = render(<Header />);
-    expect(container).toBeDefined();
-  });
+describe('Header component', () => {
+  test('renders logo and navigation links', () => {
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    );
 
-  it('should display the correct text', () => {
-    const { getAllByText } = render(<Header />);
-    expect(getAllByText('Header').length).toBeGreaterThan(0);
+    // Verifica se a logo está sendo renderizada
+    const logo = screen.getByAltText('Logo do asilo');
+    expect(logo).not.toBeNull(); // Checa se o elemento existe
+
+    // Verifica se os links de navegação estão sendo renderizados
+    const contactLink = screen.getByText('Contato');
+    const donationsLink = screen.getByText('Doações');
+    const faqLink = screen.getByText('FAQ');
+    const volunteersLink = screen.getByText('Voluntários');
+
+    expect(contactLink).not.toBeNull();
+    expect(donationsLink).not.toBeNull();
+    expect(faqLink).not.toBeNull();
+    expect(volunteersLink).not.toBeNull();
   });
 });
+//aa
