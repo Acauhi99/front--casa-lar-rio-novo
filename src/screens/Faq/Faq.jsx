@@ -4,7 +4,7 @@ import './Faq.css';
 export const Faq = () => {
   return (
     <div className="faq-container">
-      <h1>Dúvidas Frequentes</h1>
+      <h1 id="faq-title">Dúvidas Frequentes</h1>
       <div className="faq-item">
         <h2>Pergunta 1</h2>
         <p>Resposta 1</p>
