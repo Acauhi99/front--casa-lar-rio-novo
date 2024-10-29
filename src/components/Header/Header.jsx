@@ -1,31 +1,33 @@
-import { Link } from 'react-router-dom';
-import './Header.css';
-import logo from "../Images/LogoPNG.png";
+import { AppBar, Box, Button, Link, Toolbar } from '@mui/material';
 
-const Header = () => {
+export const Header = () => {
   return (
-    <header className="header">
-      <div className="header-left">
-        <img src={logo} alt="Logo do asilo" className="logo" />
-      </div>
-      <nav className="header-right">
-        <ul>
-          <li>
-            <Link to="/contact">Contato</Link>
-          </li>
-          <li>
-            <Link to="/donations">Doações</Link>
-          </li>
-          <li>
-            <Link to="/faq">FAQ</Link>
-          </li>
-          <li>
-            <Link to="/volunteers">Voluntários</Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <AppBar position="fixed" color="default" elevation={1}>
+      <Toolbar
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          paddingX: 2,
+        }}
+      >
+        <Link href="/" underline="none">
+          <img src="/logo.png" alt="Logo do asilo" style={{ width: '120px' }} />
+        </Link>
+        <Box sx={{ display: 'flex', gap: 2 }}>
+          <Button color="primary" component={Link} href="/contact">
+            Contato
+          </Button>
+          <Button color="primary" component={Link} href="/donations">
+            Doações
+          </Button>
+          <Button color="primary" component={Link} href="/faq">
+            FAQ
+          </Button>
+          <Button color="primary" component={Link} href="/volunteers">
+            Voluntários
+          </Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
-
-export default Header;
