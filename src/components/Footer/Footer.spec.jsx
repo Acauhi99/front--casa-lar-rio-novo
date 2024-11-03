@@ -1,15 +1,27 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { Footer } from './Footer';
+import { Footer } from './Footer.jsx';
 
-describe('Footer Component', () => {
-  it('should render without crashing', () => {
-    const { container } = render(<Footer />);
-    expect(container).toBeDefined();
+describe('Footer', () => {
+  it('should render the footer with correct texts', () => {
+    render(<Footer />);
+    
+    // Verifica se o texto "Casa Lar Rio Novo" está presente
+    expect(screen.getByText('Casa Lar Rio Novo')).toBeInTheDocument();
+    
+    // Verifica se o texto "Rua Jacob da Paixao, 115 Rio Novo - MG, 36.150-000" está presente
+    expect(screen.getByText('Rua Jacob da Paixao, 115 Rio Novo - MG, 36.150-000')).toBeInTheDocument();
   });
 
-  it('should display the correct text', () => {
-    const { getAllByText } = render(<Footer />);
-    expect(getAllByText('Footer').length).toBeGreaterThan(0);
+  it('should render the Instagram icon with correct link', () => {
+    render(<Footer />);
+    
+    // Verifica se o ícone do Instagram está presente
+    const instagramIcon = screen.getByTestId('InstagramIcon');
+    expect(instagramIcon).toBeInTheDocument();
+    
+    // Verifica se o link do Instagram está correto
+    const instagramLink = instagramIcon.closest('a');
+    expect(instagramLink).toHaveAttribute('href', 'https://www.instagram.com/casalarderionovo/');
   });
 });
