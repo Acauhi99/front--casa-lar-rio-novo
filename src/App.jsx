@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { About, Contact, Donations, Faq, Home, NotFound, Volunteers } from './screens';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/volunteers" element={<Volunteers />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

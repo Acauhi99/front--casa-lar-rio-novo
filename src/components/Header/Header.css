@@ -3,14 +3,12 @@
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
-  padding: 20px;
-}
-
-.header-left {
+  padding: 1px 20px 2px ;
+  border-bottom: 2px solid #154356; /* Linha fina abaixo do Header */
 }
 
 .logo {
-  width: 120px;
+  width: 100px;
 }
 
 .header-right ul {
@@ -27,9 +25,10 @@
   text-decoration: none;
   color: #154356;
   font-weight: bold;
+  font-size: 18px;
 }
 
 .header-right ul li a:hover {
   color: #5ab792; 
-  /* Lembra de trocar essa cor futuramente, coloquei apenas inicialmente*/
+  /* Lembra de trocar essa cor futuramente, coloquei apenas inicialmente */
 }
