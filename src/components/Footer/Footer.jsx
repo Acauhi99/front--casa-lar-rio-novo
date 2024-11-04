@@ -6,7 +6,8 @@ export const Footer = () => {
     <Box
       component="footer"
       sx={{
-        backgroundColor: 'background.default',
+        backgroundColor: 'primary.main', // Define a cor de fundo como "primary"
+        color: 'background.default', // Define a cor padrão de texto como "background"
         paddingY: 3,
         paddingX: 2,
         position: 'fixed',
@@ -27,10 +28,10 @@ export const Footer = () => {
           gap: 2,
         }}
       >
-        <Typography variant="h5" color="primary">
+        <Typography variant="h5" color="inherit"> {/* Usa a cor herdada, que agora é "background.default" */}
           Casa Lar Rio Novo
         </Typography>
-        <Typography variant="body1" color="primary">
+        <Typography variant="body1" color="inherit"> {/* Usa a cor herdada */}
           Rua Jacob da Paixao, 115 Rio Novo - MG, 36.150-000
         </Typography>
         <Box sx={{ display: 'flex', gap: 1 }}>
@@ -38,7 +39,7 @@ export const Footer = () => {
             href="https://www.instagram.com/casalarderionovo/"
             target="_blank"
             rel="noopener"
-            color="secondary"
+            color="inherit" // Usa a cor herdada para o ícone também
             underline="hover"
           >
             <InstagramIcon fontSize="large" />
