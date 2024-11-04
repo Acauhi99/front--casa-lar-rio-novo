@@ -29,9 +29,6 @@ export const Header = () => {
           <Button color="primary" component={Link} href="/contact">
             Contato
           </Button>
-          <Button color="primary" component={Link} href="/faq">
-            FAQ
-          </Button>
         </Box>
       </Toolbar>
     </AppBar>
