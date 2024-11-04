@@ -1,4 +1,6 @@
 import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Box, Link, Typography } from '@mui/material';
 
 export const Footer = () => {
@@ -6,10 +8,10 @@ export const Footer = () => {
     <Box
       component="footer"
       sx={{
-        backgroundColor: 'primary.main', // Define a cor de fundo como "primary"
-        color: 'background.default', // Define a cor padrão de texto como "background"
+        backgroundColor: 'primary.main',
+        color: 'background.default',
         paddingY: 3,
-        paddingX: 2,
+        paddingX: 0,
         position: 'fixed',
         bottom: 0,
         width: '100%',
@@ -28,21 +30,43 @@ export const Footer = () => {
           gap: 2,
         }}
       >
-        <Typography variant="h5" color="inherit"> {/* Usa a cor herdada, que agora é "background.default" */}
-          Casa Lar Rio Novo
-        </Typography>
-        <Typography variant="body1" color="inherit"> {/* Usa a cor herdada */}
-          Rua Jacob da Paixao, 115 Rio Novo - MG, 36.150-000
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box sx={{ flex: 1, textAlign: 'left' }}>
+          <Typography variant="h5" color="inherit">
+            Casa Lar Rio Novo
+          </Typography>
+        </Box>
+        <Box sx={{ flex: 1, textAlign: 'center' }}>
+          <Typography variant="body1" color="inherit">
+            Rua Jacob da Paixao, 115 Rio Novo - MG, 36.150-000
+          </Typography>
+        </Box>
+        <Box sx={{ flex: 1, textAlign: 'right', display: 'flex', gap: 1, justifyContent: 'flex-end' }}>
           <Link
             href="https://www.instagram.com/casalarderionovo/"
             target="_blank"
             rel="noopener"
-            color="inherit" // Usa a cor herdada para o ícone também
+            color="inherit"
             underline="hover"
           >
             <InstagramIcon fontSize="large" />
+          </Link>
+          <Link
+            href="https://www.facebook.com/ILPIcasalar/?locale=pt_BR"
+            target="_blank"
+            rel="noopener"
+            color="inherit"
+            underline="hover"
+          >
+            <FacebookIcon fontSize="large" />
+          </Link>
+          <Link
+            href="https://wa.me/5532999920658?text=Ol%C3%A1,%20vim%20atr%C3%A1ves%20do%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es"
+            target="_blank"
+            rel="noopener"
+            color="inherit"
+            underline="hover"
+          >
+            <WhatsAppIcon fontSize="large" />
           </Link>
         </Box>
       </Box>
