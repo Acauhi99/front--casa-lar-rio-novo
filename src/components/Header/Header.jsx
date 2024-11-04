@@ -11,20 +11,23 @@ export const Header = () => {
         }}
       >
         <Link href="/" underline="none">
-          <img src="/logo.png" alt="Logo do asilo" style={{ width: '120px' }} />
+          <img src="/LogoPNG2.png" alt="Logo do asilo" style={{ width: '100px' }} />
         </Link>
         <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button color="primary" component={Link} href="/contact">
-            Contato
+        <Button color="primary" component={Link} href="/">
+            Inicio
+          </Button>
+          <Button color="primary" component={Link} href="/about">
+            Nossa Casa
+          </Button>
+          <Button color="primary" component={Link} href="/faq">
+            Dúvidas
           </Button>
           <Button color="primary" component={Link} href="/donations">
             Doações
           </Button>
-          <Button color="primary" component={Link} href="/faq">
-            FAQ
-          </Button>
-          <Button color="primary" component={Link} href="/volunteers">
-            Voluntários
+          <Button color="primary" component={Link} href="/contact">
+            Contato
           </Button>
         </Box>
       </Toolbar>
