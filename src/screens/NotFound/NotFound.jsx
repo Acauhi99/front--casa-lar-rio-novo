@@ -1,11 +1,43 @@
-import './NotFound.css';
+import { Box, Button, Link, Typography } from '@mui/material';
 
 export const NotFound = () => {
   return (
-    <div className="notfound-container">
-      <h1 className="notfound-header">Página Não Encontrada</h1>
-      <p className="notfound-message">Infelizmente, o URL que você tentou acessar não é válido.</p>
-      <button className="notfound-button" onClick={() => window.location.href = '/'}>Voltar para Home</button>
-    </div>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 3,
+        p: 4,
+        textAlign: 'center'
+      }}
+    >
+      <Typography 
+        variant="h2" 
+        component="h1" 
+        color="primary"
+        gutterBottom
+      >
+        Página Não Encontrada
+      </Typography>
+
+      <Typography 
+        variant="h6" 
+        color="text.secondary"
+        sx={{ mb: 4 }}
+      >
+        Infelizmente, o URL que você tentou acessar não é válido.
+      </Typography>
+
+      <Button 
+        color="primary" 
+        component={Link} 
+        href="/"
+        variant="contained"
+      >
+        Voltar para Home
+      </Button>
+    </Box>
   );
-}
+};

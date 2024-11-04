@@ -23,6 +23,6 @@ describe('NotFound Component', () => {
     const { getByText } = render(<NotFound />);
     const button = getByText('Voltar para Home');
     expect(button).toBeInTheDocument();
-    expect(button.tagName).toBe('BUTTON');
+    expect(button.tagName).toBe('A');
   });
 });
