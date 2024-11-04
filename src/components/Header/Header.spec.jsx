@@ -29,10 +29,5 @@ describe('Header', () => {
     const faqLink = screen.getByRole('link', { name: /faq/i });
     expect(faqLink).toBeInTheDocument();
     expect(faqLink).toHaveAttribute('href', '/faq');
-    
-    // Verifica se o link "Voluntários" está presente e tem o href correto
-    const volunteersLink = screen.getByRole('link', { name: /voluntários/i });
-    expect(volunteersLink).toBeInTheDocument();
-    expect(volunteersLink).toHaveAttribute('href', '/volunteers');
   });
 });

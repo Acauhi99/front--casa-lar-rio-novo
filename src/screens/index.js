@@ -4,4 +4,3 @@ export * from "./Donations/Donations";
 export * from "./Faq/Faq";
 export * from "./Home/Home";
 export * from "./NotFound/NotFound";
-export * from "./Volunteers/Volunteers";
