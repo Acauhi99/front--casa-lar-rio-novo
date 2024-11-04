@@ -23,9 +23,6 @@ export const Header = () => {
           <Button color="primary" component={Link} href="/faq">
             FAQ
           </Button>
-          <Button color="primary" component={Link} href="/volunteers">
-            Voluntários
-          </Button>
         </Box>
       </Toolbar>
     </AppBar>
