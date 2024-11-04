@@ -9,7 +9,7 @@ describe('Header', () => {
     // Verifica se o logotipo está presente
     const logo = screen.getByAltText('Logo do asilo');
     expect(logo).toBeInTheDocument();
-    expect(logo).toHaveAttribute('src', '/logo.png');
+    expect(logo).toHaveAttribute('src', '/LogoPNG2.png');
   });
 
   it('should render the navigation links with correct href attributes', () => {
@@ -26,7 +26,7 @@ describe('Header', () => {
     expect(donationsLink).toHaveAttribute('href', '/donations');
     
     // Verifica se o link "FAQ" está presente e tem o href correto
-    const faqLink = screen.getByRole('link', { name: /faq/i });
+    const faqLink = screen.getByRole('link', { name: /dúvidas/i });
     expect(faqLink).toBeInTheDocument();
     expect(faqLink).toHaveAttribute('href', '/faq');
   });
