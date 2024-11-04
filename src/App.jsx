@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Footer, Header, MainContainer } from './components';
-import { About, Contact, Donations, Faq, Home, NotFound, Volunteers } from './screens';
+import { About, Contact, Donations, Faq, Home, NotFound } from './screens';
 
 const App = () => {
   const [showFooter, setShowFooter] = useState(false);
@@ -27,7 +27,6 @@ const App = () => {
             <Route path="/faq" element={<Faq />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/donations" element={<Donations />} />
-            <Route path="/volunteers" element={<Volunteers />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MainContainer>
