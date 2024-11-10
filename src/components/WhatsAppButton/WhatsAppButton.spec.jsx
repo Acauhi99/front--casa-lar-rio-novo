@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { WhatsAppButton } from './WhatsAppButton';
 
@@ -8,8 +8,9 @@ describe('WhatsAppButton Component', () => {
     expect(container).toBeDefined();
   });
 
-  it('should display the correct text', () => {
-    const { getAllByText } = render(<WhatsAppButton />);
-    expect(getAllByText('WhatsAppButton').length).toBeGreaterThan(0);
+  it('should render WhatsApp icon', () => {
+    render(<WhatsAppButton />);
+    const whatsappIcon = screen.getByTestId('WhatsAppIcon');
+    expect(whatsappIcon).toBeInTheDocument();
   });
 });
