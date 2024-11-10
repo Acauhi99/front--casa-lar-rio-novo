@@ -1,28 +1,29 @@
-import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { Home } from './Home';
+import { Home } from './Home.jsx';
 
-describe('Home Component', () => {
-  it('should render without crashing', () => {
-    const { container } = render(<Home />);
-    expect(container).toBeDefined();
+describe('Home', () => {
+  it('should render the main heading', () => {
+    render(<Home />);
+    
+    // Verifica se o título principal está presente
+    const mainHeading = screen.getByRole('heading', { name: /bem-vindo à home page/i });
+    expect(mainHeading).toBeInTheDocument();
   });
 
-  it('should display the correct header text', () => {
-    const { getByText } = render(<Home />);
-    expect(getByText('Bem-vindo à Home Page')).toBeInTheDocument();
+  it('should render the body text', () => {
+    render(<Home />);
+    
+    // Verifica se o texto do corpo está presente
+    const bodyText = screen.getByText(/esta é a página inicial do nosso site. esperamos que você goste!/i);
+    expect(bodyText).toBeInTheDocument();
   });
 
-  it('should display the introductory paragraph', () => {
-    const { getByText } = render(<Home />);
-    expect(getByText('Esta é a página inicial do nosso site. Esperamos que você goste!')).toBeInTheDocument();
-  });
-
-  it('should have a button with the correct text', () => {
-    const { getByText } = render(<Home />);
-    const button = getByText('Clique Aqui');
+  it('should render the "Saiba Mais" button', () => {
+    render(<Home />);
+    
+    // Verifica se o botão "Saiba Mais" está presente
+    const button = screen.getByRole('button', { name: /saiba mais/i });
     expect(button).toBeInTheDocument();
-    expect(button.tagName).toBe('BUTTON');
   });
 });

@@ -1,30 +1,33 @@
-import { describe, test, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom'; // Necessário para o Link funcionar
-import Header from './Header';
+import { describe, expect, it } from 'vitest';
+import { Header } from './Header.jsx';
 
-describe('Header component', () => {
-  test('renders logo and navigation links', () => {
-    render(
-      <BrowserRouter>
-        <Header />
-      </BrowserRouter>
-    );
-
-    // Verifica se a logo está sendo renderizada
+describe('Header', () => {
+  it('should render the logo with correct src and alt text', () => {
+    render(<Header />);
+    
+    // Verifica se o logotipo está presente
     const logo = screen.getByAltText('Logo do asilo');
-    expect(logo).not.toBeNull(); // Checa se o elemento existe
+    expect(logo).toBeInTheDocument();
+    expect(logo).toHaveAttribute('src', '/LogoPNG2.png');
+  });
 
-    // Verifica se os links de navegação estão sendo renderizados
-    const contactLink = screen.getByText('Contato');
-    const donationsLink = screen.getByText('Doações');
-    const faqLink = screen.getByText('FAQ');
-    const volunteersLink = screen.getByText('Voluntários');
-
-    expect(contactLink).not.toBeNull();
-    expect(donationsLink).not.toBeNull();
-    expect(faqLink).not.toBeNull();
-    expect(volunteersLink).not.toBeNull();
+  it('should render the navigation links with correct href attributes', () => {
+    render(<Header />);
+    
+    // Verifica se o link "Contato" está presente e tem o href correto
+    const contactLink = screen.getByRole('link', { name: /contato/i });
+    expect(contactLink).toBeInTheDocument();
+    expect(contactLink).toHaveAttribute('href', '/contact');
+    
+    // Verifica se o link "Doações" está presente e tem o href correto
+    const donationsLink = screen.getByRole('link', { name: /doações/i });
+    expect(donationsLink).toBeInTheDocument();
+    expect(donationsLink).toHaveAttribute('href', '/donations');
+    
+    // Verifica se o link "FAQ" está presente e tem o href correto
+    const faqLink = screen.getByRole('link', { name: /dúvidas/i });
+    expect(faqLink).toBeInTheDocument();
+    expect(faqLink).toHaveAttribute('href', '/faq');
   });
 });
-//aa

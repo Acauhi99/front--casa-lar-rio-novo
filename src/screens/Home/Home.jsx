@@ -1,16 +1,17 @@
-import './Home.css';
-import Footer from '../../components/Footer/Footer';
+import { Button, Typography } from '@mui/material';
 
 export const Home = () => {
   return (
-    <div className="home-container">
-      <h1 className="home-header">Bem-vindo à Home Page</h1>
-      <p className="home-intro">Esta é a página inicial do nosso site. Esperamos que você goste!</p>
-      <button className="home-button">Clique Aqui</button>
-
-      <div>
-      <Footer />
-      </div>
-    </div>
+    <>
+      <Typography variant="h1" color='primary' sx={{ fontSize: '2.5rem', fontWeight: 'bold', mb: 2, textAlign: 'center' }}>
+        Bem-vindo à Home Page
+      </Typography>
+      <Typography variant="body1" color='primary' sx={{ fontSize: '1.25rem', mb: 3, textAlign: 'center' }}>
+        Esta é a página inicial do nosso site. Esperamos que você goste!
+      </Typography>
+      <Button variant="contained" color="primary" sx={{ fontSize: '1rem', padding: '12px 24px' }}>
+        Saiba Mais
+      </Button>
+    </>
   );
-}
+};
