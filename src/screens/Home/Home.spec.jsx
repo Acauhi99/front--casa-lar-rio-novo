@@ -1,29 +1,50 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
-import { Home } from './Home.jsx';
+import '@testing-library/jest-dom';
+import { Home } from './Home';
 
-describe('Home', () => {
-  it('should render the main heading', () => {
+describe('Home Component', () => {
+  
+  test('renders the main heading', () => {
     render(<Home />);
-    
-    // Verifica se o título principal está presente
-    const mainHeading = screen.getByRole('heading', { name: /bem-vindo à home page/i });
+    const mainHeading = screen.getByText(/Ajudamos a transformar/i);
     expect(mainHeading).toBeInTheDocument();
   });
 
-  it('should render the body text', () => {
+  test('renders three cards with correct titles and icons', () => {
     render(<Home />);
-    
-    // Verifica se o texto do corpo está presente
-    const bodyText = screen.getByText(/esta é a página inicial do nosso site. esperamos que você goste!/i);
-    expect(bodyText).toBeInTheDocument();
+
+    // Verifique os títulos de cada card
+    const cardTitles = screen.getAllByRole('heading', { level: 6 });
+    const expectedTitles = [
+      /Atendimento Humanizado/i,
+      /Infraestrutura Dedicada/i,
+      /Programas de Inclusão/i
+    ];
+
+    // Verificar se cada título esperado está presente
+    expectedTitles.forEach((expectedTitle, index) => {
+      expect(cardTitles[index]).toHaveTextContent(expectedTitle);
+    });
+
+    // Verifique os ícones de cada card
+    expect(screen.getByTestId('CheckCircleIcon')).toBeInTheDocument();
+    expect(screen.getByTestId('FavoriteIcon')).toBeInTheDocument();
+    expect(screen.getByTestId('GroupIcon')).toBeInTheDocument();
   });
 
-  it('should render the "Saiba Mais" button', () => {
+  test('renders card texts correctly', () => {
     render(<Home />);
     
-    // Verifica se o botão "Saiba Mais" está presente
-    const button = screen.getByRole('button', { name: /saiba mais/i });
-    expect(button).toBeInTheDocument();
+    // Verifique trechos do texto de cada card
+    const cardTexts = [
+      /oferecer um atendimento humanizado/i,
+      /oferecer um ambiente seguro e acolhedor/i,
+      /envolve laços sociais e interação com a comunidade/i
+    ];
+
+    cardTexts.forEach((text) => {
+      expect(screen.getByText(text)).toBeInTheDocument();
+    });
   });
 });
