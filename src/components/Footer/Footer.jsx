@@ -1,7 +1,7 @@
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { Box, Link, Typography } from '@mui/material';
+import { Box, Link, Typography, Grid } from '@mui/material';
 
 export const Footer = () => {
   return (
@@ -15,32 +15,31 @@ export const Footer = () => {
         position: 'fixed',
         bottom: 0,
         width: '100%',
-        textAlign: 'center',
         boxShadow: '0 -1px 4px rgba(0, 0, 0, 0.2)',
       }}
     >
-      <Box
+      <Grid
+        container
         sx={{
           maxWidth: '1200px',
           margin: 'auto',
-          display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
           alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 2,
+          justifyContent: { xs: 'center', sm: 'space-between' },
+          textAlign: { xs: 'center', sm: 'left' },
+          flexDirection: { xs: 'column', sm: 'row' },
         }}
       >
-        <Box sx={{ flex: 1, textAlign: 'left' }}>
+        <Grid item xs={12} sm={4}>
           <Typography variant="h5" color="inherit">
             Casa Lar Rio Novo
           </Typography>
-        </Box>
-        <Box sx={{ flex: 1, textAlign: 'center' }}>
+        </Grid>
+        <Grid item xs={12} sm={4}>
           <Typography variant="body1" color="inherit">
             Rua Jacob da Paixao, 115 Rio Novo - MG, 36.150-000
           </Typography>
-        </Box>
-        <Box sx={{ flex: 1, textAlign: 'right', display: 'flex', gap: 1, justifyContent: 'flex-end' }}>
+        </Grid>
+        <Grid item xs={12} sm={4} sx={{ display: 'flex', gap: 1, justifyContent: { xs: 'center', sm: 'flex-end' } }}>
           <Link
             href="https://www.instagram.com/casalarderionovo/"
             target="_blank"
@@ -68,8 +67,8 @@ export const Footer = () => {
           >
             <WhatsAppIcon fontSize="large" />
           </Link>
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
