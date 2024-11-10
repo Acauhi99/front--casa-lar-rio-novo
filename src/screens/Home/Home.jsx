@@ -1,17 +1,57 @@
-import { Button, Typography } from '@mui/material';
+import React from 'react';
+import { Typography, Card, CardContent, Grid, Container } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import GroupIcon from '@mui/icons-material/Group';
+import './Home.css';
 
 export const Home = () => {
   return (
-    <>
-      <Typography variant="h1" color='primary' sx={{ fontSize: '2.5rem', fontWeight: 'bold', mb: 2, textAlign: 'center' }}>
-        Bem-vindo à Home Page
-      </Typography>
-      <Typography variant="body1" color='primary' sx={{ fontSize: '1.25rem', mb: 3, textAlign: 'center' }}>
-        Esta é a página inicial do nosso site. Esperamos que você goste!
-      </Typography>
-      <Button variant="contained" color="primary" sx={{ fontSize: '1rem', padding: '12px 24px' }}>
-        Saiba Mais
-      </Button>
-    </>
+    <Container maxWidth="lg" className="container">
+      <Grid container spacing={4} justifyContent="center">
+        
+        <Grid item xs={12} sm={6} md={4}>
+          <Card className="card">
+            <CardContent>
+              <CheckCircleIcon color="primary" className="icon" />
+              <Typography variant="h6" color="textPrimary" className="card-title">
+                Atendimento Humanizado
+              </Typography>
+              <Typography variant="body2" className="card-text">
+                Ao longo de mais de um século de história, a Casa Lar tem se dedicado a oferecer um atendimento humanizado...
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4}>
+          <Card className="card">
+            <CardContent>
+              <FavoriteIcon color="primary" className="icon" />
+              <Typography variant="h6" color="textPrimary" className="card-title">
+                Infraestrutura Dedicada
+              </Typography>
+              <Typography variant="body2" className="card-text">
+                Ao longo de sua história, a Casa Lar tem buscado oferecer um ambiente seguro e acolhedor...
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4}>
+          <Card className="card">
+            <CardContent>
+              <GroupIcon color="primary" className="icon" />
+              <Typography variant="h6" color="textPrimary" className="card-title">
+                Programas de Inclusão
+              </Typography>
+              <Typography variant="body2" className="card-text">
+                Acreditamos que o envelhecimento saudável envolve laços sociais e interação com a comunidade...
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
