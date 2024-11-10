@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { Faq } from './Faq';
 
@@ -8,8 +8,8 @@ describe('Faq Component', () => {
     expect(container).toBeDefined();
   });
 
-  it('should display the correct text', () => {
-    const { getAllByText } = render(<Faq />);
-    expect(getAllByText('Faq').length).toBeGreaterThan(0);
+  it('should display the correct heading', () => {
+    render(<Faq />);
+    expect(screen.getByText('Dúvidas Frequentes')).toBeInTheDocument();
   });
 });
