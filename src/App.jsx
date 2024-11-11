@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Footer, Header, MainContainer } from './components';
 import { About, Contact, Donations, Faq, Home, NotFound } from './screens';
+import { WhatsAppButton } from './components/WhatsAppButton/WhatsAppButton';
 
 const App = () => {
   const [showFooter, setShowFooter] = useState(false);
@@ -32,6 +33,7 @@ const App = () => {
         </MainContainer>
       </div>
       {showFooter && <Footer />}
+      <WhatsAppButton />
     </div>
   );
 };
