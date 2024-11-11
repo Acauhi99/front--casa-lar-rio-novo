@@ -1,5 +1,5 @@
-import { Link, Fab } from '@mui/material';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { Link, Fab } from "@mui/material";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 export const WhatsAppButton = () => {
   return (
@@ -8,7 +8,7 @@ export const WhatsAppButton = () => {
       target="_blank"
       rel="noopener"
       sx={{
-        position: 'fixed',
+        position: "fixed",
         bottom: 120,
         right: 20,
         zIndex: 1000,
@@ -16,13 +16,13 @@ export const WhatsAppButton = () => {
     >
       <Fab
         sx={{
-          bgcolor: '#25d366',
-          '&:hover': {
-            bgcolor: '#20ba57',
+          bgcolor: "#25d366",
+          "&:hover": {
+            bgcolor: "#20ba57",
           },
         }}
       >
-        <WhatsAppIcon sx={{ color: '#fff' }} fontSize="large" />
+        <WhatsAppIcon sx={{ color: "#fff" }} fontSize="large" />
       </Fab>
     </Link>
   );
