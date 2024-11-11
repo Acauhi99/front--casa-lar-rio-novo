@@ -1,26 +1,97 @@
-import React from 'react';
-import './Faq.css';
+import {
+  Container,
+  Typography,
+  Box,
+  Button,
+  Paper,
+  styled,
+} from "@mui/material";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import InstagramIcon from "@mui/icons-material/Instagram";
+
+const FaqItem = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(3),
+  marginBottom: theme.spacing(2),
+  borderRadius: "8px",
+  transition: "all 0.3s ease",
+  "&:hover": {
+    transform: "translateY(-2px)",
+    boxShadow: theme.shadows[3],
+  },
+}));
+
+const ContactButton = styled(Button)(({ theme }) => ({
+  margin: theme.spacing(1),
+  padding: theme.spacing(1.5, 3),
+  borderRadius: "25px",
+  textTransform: "none",
+  fontSize: "1rem",
+}));
 
 export const Faq = () => {
   return (
-    <div className="faq-container">
-      <h1 id="faq-title">Dúvidas Frequentes</h1>
-      <div className="faq-item">
-        <h2>Pergunta 1</h2>
-        <p>Resposta 1</p>
-      </div>
-      <div className="faq-item">
-        <h2>Pergunta 2</h2>
-        <p>Resposta 2</p>
-      </div>
-      <div className="faq-item">
-        <h2>Pergunta 3</h2>
-        <p>Resposta 3</p>
-      </div>
-      <div className="contact-buttons">
-        <button className="whatsapp-button">Entre em contato pelo WhatsApp</button>
-        <button className="instagram-button">Entre em contato pelo Instagram</button>
-      </div>
-    </div>
+    <Container maxWidth="md" sx={{ py: 4 }}>
+      <Typography
+        variant="h3"
+        component="h1"
+        gutterBottom
+        sx={{
+          textAlign: "center",
+          fontWeight: "bold",
+          color: "primary.main",
+          mb: 4,
+        }}
+      >
+        Dúvidas Frequentes
+      </Typography>
+
+      <Box sx={{ mb: 4 }}>
+        <FaqItem elevation={1}>
+          <Typography variant="h6" gutterBottom>
+            Pergunta 1
+          </Typography>
+          <Typography variant="body1">Resposta 1</Typography>
+        </FaqItem>
+
+        <FaqItem elevation={1}>
+          <Typography variant="h6" gutterBottom>
+            Pergunta 2
+          </Typography>
+          <Typography variant="body1">Resposta 2</Typography>
+        </FaqItem>
+
+        <FaqItem elevation={1}>
+          <Typography variant="h6" gutterBottom>
+            Pergunta 3
+          </Typography>
+          <Typography variant="body1">Resposta 3</Typography>
+        </FaqItem>
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: 2,
+        }}
+      >
+        <ContactButton
+          variant="contained"
+          color="success"
+          startIcon={<WhatsAppIcon />}
+        >
+          Entre em contato pelo WhatsApp
+        </ContactButton>
+
+        <ContactButton
+          variant="contained"
+          color="secondary"
+          startIcon={<InstagramIcon />}
+        >
+          Entre em contato pelo Instagram
+        </ContactButton>
+      </Box>
+    </Container>
   );
-}
+};
