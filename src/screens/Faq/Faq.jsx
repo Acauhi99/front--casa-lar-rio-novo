@@ -8,7 +8,6 @@ import {
   styled,
 } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import InstagramIcon from "@mui/icons-material/Instagram";
 
 const FaqItem = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),
@@ -27,6 +26,11 @@ const ContactButton = styled(Button)(({ theme }) => ({
   borderRadius: "25px",
   textTransform: "none",
   fontSize: "1rem",
+  backgroundColor: "#25D366", 
+  color: "#fff",
+  "&:hover": {
+    backgroundColor: "#1EBE5D", 
+  }
 }));
 
 const FaqTitle = styled(Typography)(({ theme }) => ({
@@ -93,35 +97,35 @@ export const Faq = () => {
 
         <FaqItem elevation={1}>
           <FaqTitle variant="h6" gutterBottom>
-          O Asilo Casa Lar funciona em que horário?
+            O Asilo Casa Lar funciona em que horário?
           </FaqTitle>
           <FaqContent text="O Asilo Casa Lar está em funcionamento 24 horas por dia, todos os dias da semana. Isso garante que nossos idosos tenham o cuidado contínuo e acompanhamento necessário, independentemente do horário. Estamos sempre disponíveis para oferecer o melhor suporte e carinho a quem está sob nossos cuidados." />
         </FaqItem>
 
         <FaqItem elevation={1}>
           <FaqTitle variant="h6" gutterBottom>
-          O Asilo Casa Lar recebe apoio governamental?
+            O Asilo Casa Lar recebe apoio governamental?
           </FaqTitle>
           <FaqContent text="O Asilo Casa Lar é uma instituição filantrópica e, por isso, não recebe apoio direto do governo. A manutenção da instituição é garantida pelas contribuições dos próprios residentes, o que nos permite oferecer um ambiente acolhedor e dedicado ao cuidado dos idosos." />
         </FaqItem>
 
         <FaqItem elevation={1}>
           <FaqTitle variant="h6" gutterBottom>
-          Quais são os requisitos para um idoso ser acolhido no Asilo Casa Lar?
+            Quais são os requisitos para um idoso ser acolhido no Asilo Casa Lar?
           </FaqTitle>
           <FaqContent text="Para ser acolhido no Asilo Casa Lar, o idoso precisa ter mais de 60 anos e ser independente nas atividades diárias, embora possa precisar de alguma orientação ou ajuda pontual. Nosso objetivo é acolher aqueles que buscam um ambiente seguro e confortável, e, ao longo do tempo, continuamos a oferecer cuidados à medida que as necessidades de cada residente evoluem. A instituição está pronta para receber idosos que precisam de apoio, sempre com muito respeito e carinho." />
         </FaqItem>
 
         <FaqItem elevation={1}>
           <FaqTitle variant="h6" gutterBottom>
-          O que é uma Instituição de Longa Permanência para Idosos (ILPI)?
+            O que é uma Instituição de Longa Permanência para Idosos (ILPI)?
           </FaqTitle>
           <FaqContent text="Uma ILPI, como o Asilo Casa Lar, é um espaço seguro e acolhedor onde idosos podem viver com conforto e cuidados contínuos. Nosso objetivo é proporcionar uma convivência tranquila e respeitosa para aqueles que precisam de apoio para suas atividades diárias, oferecendo um ambiente familiar e cuidado para o bem-estar dos residentes." />
         </FaqItem>
 
         <FaqItem elevation={1}>
           <FaqTitle variant="h6" gutterBottom>
-          Qual o objetivo do Asilo Casa Lar?
+            Qual o objetivo do Asilo Casa Lar?
           </FaqTitle>
           <FaqContent text="O Asilo Casa Lar tem como objetivo oferecer um espaço seguro e acolhedor, onde idosos podem viver com conforto, cuidados contínuos e a convivência tranquila de um ambiente familiar. Buscamos garantir o bem-estar dos nossos residentes, oferecendo apoio para suas atividades diárias, respeitando suas individualidades e necessidades." />
         </FaqItem>
@@ -135,16 +139,21 @@ export const Faq = () => {
           justifyContent: "center",
           flexWrap: "wrap",
           gap: 2,
+          mb: 4,
         }}
       >
         <ContactButton
+          component="a"
+          href="https://wa.me/5532999920658?text=Ol%C3%A1,%20vim%20atr%C3%A1ves%20do%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es"
+          target="_blank"
+          rel="noopener noreferrer"
           variant="contained"
           color="success"
           startIcon={<WhatsAppIcon />}
         >
           Entre em contato pelo WhatsApp
         </ContactButton>
-{/* aaa */}
+
       </Box>
     </Container>
   );
