@@ -35,6 +35,7 @@ const ContactButton = styled(Button)(({ theme }) => ({
 
 const FaqTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
+  fontWeight: "bold",
 }));
 
 const FaqContent = ({ text }) => {
@@ -65,7 +66,7 @@ const FaqContent = ({ text }) => {
 
 export const Faq = () => {
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container maxWidth="md" sx={{ py: 4, pb: 8 }}>
       <Typography
         variant="h3"
         component="h1"
