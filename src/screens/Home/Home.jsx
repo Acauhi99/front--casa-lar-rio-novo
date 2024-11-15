@@ -12,6 +12,7 @@ import {
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import GroupIcon from "@mui/icons-material/Group";
+import PropTypes from "prop-types";
 
 const StyledCard = styled(Card)(() => ({
   textAlign: "left",
@@ -44,18 +45,16 @@ const CardTitle = styled(Typography)(({ theme }) => ({
   marginBottom: "8px",
 }));
 
-const CardText = styled(Typography)(({ expanded }) => ({
+const CardText = styled(Typography)(() => ({
   color: "#616161",
   fontSize: "0.95rem",
   lineHeight: 1.6,
   overflow: "hidden",
   display: "-webkit-box",
-  WebkitLineClamp: expanded ? "unset" : 4,
   WebkitBoxOrient: "vertical",
   transition: "all 0.3s ease-in-out",
 }));
 
-// eslint-disable-next-line react/prop-types
 const CardComponent = ({ icon, title, description }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -67,7 +66,12 @@ const CardComponent = ({ icon, title, description }) => {
         <StyledIcon>{icon}</StyledIcon>
         <CardTitle variant="h6">{title}</CardTitle>
         <Box sx={{ position: "relative", flex: 1 }}>
-          <CardText expanded={expanded} variant="body2">
+          <CardText
+            variant="body2"
+            sx={{
+              WebkitLineClamp: expanded ? "unset" : 4,
+            }}
+          >
             {description}
           </CardText>
           <Box
@@ -91,6 +95,12 @@ const CardComponent = ({ icon, title, description }) => {
       </CardContent>
     </StyledCard>
   );
+};
+
+CardComponent.propTypes = {
+  icon: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export const Home = () => {
@@ -139,7 +149,7 @@ export const Home = () => {
         sx={{
           fontWeight: "bold",
           color: "primary.main",
-          fontSize: "1.25rem",
+          fontSize: "2.5rem",
           marginBottom: "32px",
         }}
         gutterBottom
