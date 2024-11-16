@@ -139,6 +139,18 @@ export const Faq = () => {
         </FaqItem>
       ))}
 
+      <Typography
+        variant="body1"
+        sx={{
+          textAlign: "center",
+          marginBottom: 2,
+          color: "text.primary",
+          fontSize: "1rem",
+        }}
+      >
+        Nossa FAQ foi elaborada para oferecer todas as informações que você precisa de forma acessível e direta, ajudando a tornar sua experiência conosco ainda mais satisfatória. Se não encontrar o que procura, nossa equipe de suporte estará sempre pronta para ajudar!
+      </Typography>
+
       <ContactButton
         variant="contained"
         href="https://wa.me/5532999920658?text=Ol%C3%A1,%20vim%20atr%C3%A1ves%20do%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es"
