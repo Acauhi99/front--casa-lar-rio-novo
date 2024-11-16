@@ -75,6 +75,8 @@ const ContactButton = styled(Button)(({ theme }) => ({
 
 const FaqTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
+  fontWeight: 500,
+  fontWeight: "bold",
 }));
 
 const FaqContent = ({ text }) => {
@@ -102,7 +104,17 @@ FaqContent.propTypes = {
 
 export const Faq = () => {
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container
+      maxWidth="md"
+      sx={{
+        paddingTop: { xs: "100px", sm: "120px" },
+        paddingBottom: "100px",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        gap: 3,
+      }}
+    >
       <Typography
         variant="h3"
         component="h1"
