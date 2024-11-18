@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
-import { Swiper, SwiperSlide } from "swiper/react"; // Arrumando erro de commit
+import { Swiper, SwiperSlide } from "swiper/react"; 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
