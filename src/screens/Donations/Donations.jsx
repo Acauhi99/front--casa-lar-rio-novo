@@ -5,12 +5,12 @@ import { Facebook, Twitter, Instagram } from "@mui/icons-material";
 export const Donations = () => {
   return (
     <Container sx={{ textAlign: "center", paddingY: 4, paddingTop: "80px", paddingBottom: "80px" }}>
-      
+
       {/* Citação Inspiradora */}
       <Typography variant="h5" fontWeight="bold" color="primary" gutterBottom>
         "Toda doação é uma forma de amor. Seu amor deixa marcas. Doe."
       </Typography>
-      
+
       {/* Descrição sobre Doações */}
       <Box sx={{ marginY: 3, textAlign: "left" }}>
         <Typography variant="body1" color="textSecondary" paragraph>
@@ -25,7 +25,11 @@ export const Donations = () => {
           component="img"
           src="https://scontent.fjdf2-2.fna.fbcdn.net/v/t39.30808-6/326501512_1251276062127004_6526888782455255230_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeH3uQJ-meo2vXzOQj5Mm2hLAb5zkrRLXA8BvnOStEtcD3Gc_W735kqFfJFQXHgIA57oOBAcoAfR5qMIFcKRMUog&_nc_ohc=MiIh70CyNNsQ7kNvgEIKqrC&_nc_zt=23&_nc_ht=scontent.fjdf2-2.fna&_nc_gid=A6nXb5Q6Rj6k5ldG5NyVgAj&oh=00_AYCFTtdyOoqJX3DUpjrwdPc2DXzqIaOYA_4-u2nzfwmBIw&oe=6740728B"
           alt="Imagem de Doação"
-          sx={{ maxWidth: "300px", borderRadius: "8px" }}
+          sx={{
+            maxWidth: "100%",
+            height: "auto",
+            borderRadius: "8px",
+          }}
         />
       </Box>
 
@@ -43,7 +47,7 @@ export const Donations = () => {
       {/* Informações Bancárias */}
       <Grid container spacing={4} justifyContent="center">
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ padding: 2, backgroundColor: "#f8f8f8" }}>
+          <Card sx={{ padding: 2, backgroundColor: "#f8f8f8", boxShadow: 3 }}>
             <Typography variant="h6" color="primary">
               Sicoob
             </Typography>
@@ -57,7 +61,7 @@ export const Donations = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ padding: 2, backgroundColor: "#f8f8f8" }}>
+          <Card sx={{ padding: 2, backgroundColor: "#f8f8f8", boxShadow: 3 }}>
             <Typography variant="h6" color="primary">
               Banco do Brasil
             </Typography>
@@ -71,7 +75,7 @@ export const Donations = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ padding: 2, backgroundColor: "#f8f8f8" }}>
+          <Card sx={{ padding: 2, backgroundColor: "#f8f8f8", boxShadow: 3 }}>
             <Typography variant="h6" color="primary">
               PIX
             </Typography>
@@ -85,7 +89,7 @@ export const Donations = () => {
       {/* Botão de Doação */}
       <Box sx={{ marginTop: 4 }}>
         <Button variant="contained" color="primary" size="large">
-          Doe sua generosidade, transforme um ato em um impacto
+          Transforme sua generosidade em impacto
         </Button>
       </Box>
 
@@ -94,36 +98,36 @@ export const Donations = () => {
         <Typography variant="body2" color="textSecondary" sx={{ marginRight: 1 }}>
           Compartilhar:
         </Typography>
-        <IconButton color="primary">
+        <IconButton color="primary" component="a" href="https://www.facebook.com" target="_blank" aria-label="Compartilhar no Facebook">
           <Facebook />
         </IconButton>
-        <IconButton color="primary">
+        <IconButton color="primary" component="a" href="https://twitter.com" target="_blank" aria-label="Compartilhar no Twitter">
           <Twitter />
         </IconButton>
-        <IconButton color="primary">
+        <IconButton color="primary" component="a" href="https://www.instagram.com" target="_blank" aria-label="Compartilhar no Instagram">
           <Instagram />
         </IconButton>
+
       </Box>
 
       {/* Seção de Newsletter */}
-      <Box
-        sx={{
-          backgroundColor: "#f8f8f8",
-          padding: 3,
-          borderRadius: "8px",
-          marginTop: 6,
-          textAlign: "left",
-        }}
-      >
+      <Box sx={{ backgroundColor: "#f8f8f8", padding: 3, borderRadius: "8px", marginTop: 6, textAlign: "left" }}>
         <Typography variant="h6" fontWeight="bold" color="primary">
           Fique atualizado
         </Typography>
         <Typography variant="body2" color="textSecondary" paragraph>
           Inscreva-se e receba mais informações sobre como contribuir com as causas da instituição.
         </Typography>
-        <Button variant="contained" color="primary" size="large">
-          Inscreva-se
-        </Button>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <input
+            type="email"
+            placeholder="Digite seu e-mail"
+            style={{ padding: "10px", flex: 1, borderRadius: "4px", border: "1px solid #ccc" }}
+          />
+          <Button variant="contained" color="primary" size="large" sx={{ marginLeft: 2 }}>
+            Inscreva-se
+          </Button>
+        </Box>
       </Box>
     </Container>
   );
