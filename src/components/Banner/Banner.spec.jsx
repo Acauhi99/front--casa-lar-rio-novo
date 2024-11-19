@@ -1,24 +1,27 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import '@testing-library/jest-dom';
 import Banner from './Banner';
 
-jest.mock('swiper/react', () => ({
+// Mock the Swiper components
+vi.mock('swiper/react', () => ({
   Swiper: ({ children }) => <div data-testid="swiper">{children}</div>,
   SwiperSlide: ({ children }) => <div data-testid="swiper-slide">{children}</div>,
 }));
 
-jest.mock('swiper/modules', () => ({
-  Autoplay: jest.fn(),
-  Pagination: jest.fn(),
-  Navigation: jest.fn(),
+// Mock the Swiper modules
+vi.mock('swiper/modules', () => ({
+  Autoplay: vi.fn(),
+  Pagination: vi.fn(),
+  Navigation: vi.fn(),
 }));
 
 describe('Banner Component', () => {
   it('renders the Banner component with correct number of slides', () => {
     render(<Banner />);
     const slides = screen.getAllByTestId('swiper-slide');
-    expect(slides).toHaveLength(3);
+    expect(slides.length).toBe(3);
   });
 
   it('renders the correct content for each slide', () => {

@@ -6,8 +6,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-// Arrumando commit do componente
-
 
 const slides = [
   {
