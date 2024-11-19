@@ -76,6 +76,7 @@ const ContactButton = styled(Button)(({ theme }) => ({
 const FaqTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
   fontWeight: 500,
+  fontWeight: "bold",
 }));
 
 const FaqContent = ({ text }) => {
@@ -137,6 +138,18 @@ export const Faq = () => {
           <FaqContent text={faq.content} />
         </FaqItem>
       ))}
+
+      <Typography
+        variant="body1"
+        sx={{
+          textAlign: "center",
+          marginBottom: 2,
+          color: "text.primary",
+          fontSize: "1rem",
+        }}
+      >
+        Nossa FAQ foi elaborada para oferecer todas as informações que você precisa de forma acessível e direta, ajudando a tornar sua experiência conosco ainda mais satisfatória. Se não encontrar o que procura, nossa equipe de suporte estará sempre pronta para ajudar!
+      </Typography>
 
       <ContactButton
         variant="contained"
