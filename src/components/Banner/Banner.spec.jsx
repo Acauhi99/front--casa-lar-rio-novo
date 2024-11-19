@@ -1,36 +1,94 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Banner from './Banner'; 
-import '@testing-library/jest-dom'; 
+import '@testing-library/jest-dom';
+import Banner from './Banner';
+
+jest.mock('swiper/react', () => ({
+  Swiper: ({ children }) => <div data-testid="swiper">{children}</div>,
+  SwiperSlide: ({ children }) => <div data-testid="swiper-slide">{children}</div>,
+}));
+
+jest.mock('swiper/modules', () => ({
+  Autoplay: jest.fn(),
+  Pagination: jest.fn(),
+  Navigation: jest.fn(),
+}));
 
 describe('Banner Component', () => {
-  it('renders the Banner component correctly', () => {
+  it('renders the Banner component with correct number of slides', () => {
     render(<Banner />);
-
-    expect(screen.getByText('Transforme Vidas')).toBeInTheDocument();
-    expect(screen.getByText('Apoie a nossa missão de cuidar de quem mais precisa.')).toBeInTheDocument();
-    expect(screen.getByText('Saiba Mais')).toBeInTheDocument();
-    expect(screen.getByText('Doar Agora')).toBeInTheDocument();
-  });
-
-  it('should render all slides', () => {
-    render(<Banner />);
-
-    const slides = screen.getAllByText(/Transforme Vidas|Cuidados Humanizados|Juntos Somos Mais Fortes/);
+    const slides = screen.getAllByTestId('swiper-slide');
     expect(slides).toHaveLength(3);
   });
 
-  it('should have the correct background image URL for each slide', () => {
+  it('renders the correct content for each slide', () => {
     render(<Banner />);
-    
-    const firstSlide = screen.getByText('Transforme Vidas').closest('div');
-    expect(firstSlide).toHaveStyle('background-image: url(/foto1.jpg)');
+    const slides = screen.getAllByTestId('swiper-slide');
+
+    const expectedContent = [
+      {
+        title: 'Transforme Vidas',
+        description: 'Apoie a nossa missão de cuidar de quem mais precisa.',
+        primaryButton: 'Saiba Mais',
+        secondaryButton: 'Doar Agora',
+      },
+      {
+        title: 'Cuidados Humanizados',
+        description: 'Oferecemos cuidado e acolhimento com amor e dedicação.',
+        primaryButton: 'Nossos Serviços',
+        secondaryButton: 'Doar Agora',
+      },
+      {
+        title: 'Juntos Somos Mais Fortes',
+        description: 'Ajude a construir um futuro melhor para nossos idosos.',
+        primaryButton: 'Conheça Mais',
+        secondaryButton: 'Doar Agora',
+      },
+    ];
+
+    slides.forEach((slide, index) => {
+      const content = expectedContent[index];
+      expect(slide).toHaveTextContent(content.title);
+      expect(slide).toHaveTextContent(content.description);
+      expect(slide).toHaveTextContent(content.primaryButton);
+      expect(slide).toHaveTextContent(content.secondaryButton);
+    });
   });
 
-  it('should have buttons with the correct labels', () => {
+  it('applies correct styles to slide elements', () => {
     render(<Banner />);
+    const slides = screen.getAllByTestId('swiper-slide');
 
-    expect(screen.getByRole('button', { name: 'Saiba Mais' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Doar Agora' })).toBeInTheDocument();
+    slides.forEach((slide) => {
+      const container = slide.firstChild;
+      expect(container).toHaveStyle({
+        height: '90vh',
+        backgroundImage: 'url(/foto1.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#fff',
+        textAlign: 'center',
+      });
+    });
+  });
+
+  it('renders buttons with correct styles', () => {
+    render(<Banner />);
+    const primaryButtons = screen.getAllByText(/Saiba Mais|Nossos Serviços|Conheça Mais/);
+    const secondaryButtons = screen.getAllByText('Doar Agora');
+
+    primaryButtons.forEach((button) => {
+      expect(button).toHaveClass('MuiButton-contained');
+      expect(button).toHaveClass('MuiButton-sizeLarge');
+      expect(button).toHaveClass('MuiButton-colorPrimary');
+    });
+
+    secondaryButtons.forEach((button) => {
+      expect(button).toHaveClass('MuiButton-outlined');
+      expect(button).toHaveClass('MuiButton-sizeLarge');
+    });
   });
 });
