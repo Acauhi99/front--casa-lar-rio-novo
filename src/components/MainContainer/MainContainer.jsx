@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 import PropTypes from "prop-types";
 
 export const MainContainer = ({ children }) => {
@@ -15,6 +15,7 @@ export const MainContainer = ({ children }) => {
         marginBottom: "64px",
       }}
     >
+      <Toolbar />
       {children}
     </Box>
   );
