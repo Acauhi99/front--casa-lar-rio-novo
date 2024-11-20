@@ -1,11 +1,10 @@
-import React from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
-import { Swiper, SwiperSlide } from "swiper/react"; 
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
+import { useTheme } from "@mui/material/styles";
 
 const slides = [
   {
@@ -32,12 +31,20 @@ const slides = [
 ];
 
 const Banner = () => {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
         position: "relative",
         width: "100%",
         overflow: "hidden",
+        ".swiper-pagination-bullet": {
+          backgroundColor: theme.palette.secondary.main,
+        },
+        ".swiper-button-next, .swiper-button-prev": {
+          color: theme.palette.secondary.main,
+        },
       }}
     >
       <Swiper
@@ -45,7 +52,7 @@ const Banner = () => {
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
-        simulateTouch={true} 
+        simulateTouch={true}
         grabCursor={true}
         loop
       >
@@ -53,7 +60,7 @@ const Banner = () => {
           <SwiperSlide key={index}>
             <Box
               sx={{
-                height: "90vh",
+                height: "70vh",
                 backgroundImage: `url(${slide.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -62,15 +69,30 @@ const Banner = () => {
                 justifyContent: "center",
                 color: "#fff",
                 textAlign: "center",
+                position: "relative",
               }}
             >
-              <Container>
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+              <Container
+                sx={{
+                  position: "relative",
+                  zIndex: 1,
+                }}
+              >
                 <Typography
                   variant="h2"
                   sx={{
                     fontWeight: "bold",
-                    textShadow: "2px 2px 4px rgba(0,0,0,0.6)",
                     marginBottom: "16px",
+                    color: theme.palette.primary.main,
                   }}
                 >
                   {slide.title}
@@ -78,8 +100,8 @@ const Banner = () => {
                 <Typography
                   variant="h6"
                   sx={{
-                    textShadow: "1px 1px 3px rgba(0,0,0,0.6)",
                     marginBottom: "32px",
+                    color: theme.palette.secondary.main,
                   }}
                 >
                   {slide.description}
@@ -95,9 +117,7 @@ const Banner = () => {
                     variant="contained"
                     size="large"
                     color="primary"
-                    sx={{
-                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-                    }}
+                    sx={{}}
                   >
                     {slide.primaryButton}
                   </Button>
@@ -105,11 +125,11 @@ const Banner = () => {
                     variant="outlined"
                     size="large"
                     sx={{
-                      color: "#fff",
-                      borderColor: "#fff",
-                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+                      color: theme.palette.primary.main,
+                      borderColor: theme.palette.primary.main,
+
                       "&:hover": {
-                        borderColor: "primary.main",
+                        borderColor: theme.palette.secondary.main,
                       },
                     }}
                   >
