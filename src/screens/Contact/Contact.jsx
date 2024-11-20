@@ -1,13 +1,7 @@
-import {
-  Box,
-  Container,
-  Paper,
-  Typography,
-  IconButton
-} from '@mui/material';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import Map from '../../components/Map/Map';
-import { useRef } from 'react';
+import { Box, Container, Paper, Typography, IconButton } from "@mui/material";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Map from "../../components/Map/Map";
+import { useRef } from "react";
 
 export const Contact = () => {
   const position = [-21.47230429755037, -43.12305091806953];
@@ -20,15 +14,17 @@ export const Contact = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ 
-      position: 'relative',
+    <Container
+      maxWidth="md"
+      sx={{
+        position: "relative",
         zIndex: 1,
         mb: 2,
-        marginBottom: '140px',
-        boxSizing: 'border-box',
-        display: 'flex',
-        flexDirection: 'column'
-      }}>
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Paper elevation={3} sx={{ p: 4, mt: 4 }}>
         <Typography
           variant="h4"
@@ -53,7 +49,7 @@ export const Contact = () => {
         <Typography
           variant="h5"
           textAlign="center"
-          sx={{ mb: 4, fontWeight: 'bold' }}
+          sx={{ mb: 4, fontWeight: "bold" }}
         >
           32 99992-0658
         </Typography>
@@ -63,16 +59,13 @@ export const Contact = () => {
           sx={{
             p: 2,
             mb: 2,
-            backgroundColor: '#f5f5f5',
+            backgroundColor: "#f5f5f5",
             borderRadius: 2,
-            width: '30%',
-            mx: 'auto'
+            width: "30%",
+            mx: "auto",
           }}
         >
-          <Typography
-            variant="body1"
-            textAlign="center"
-          >
+          <Typography variant="body1" textAlign="center">
             CEP 36150
             <br />
             Rua Jacob da Paixao, 115
@@ -83,9 +76,9 @@ export const Contact = () => {
 
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            mt: 2
+            display: "flex",
+            justifyContent: "center",
+            mt: 2,
           }}
         >
           <IconButton
@@ -100,18 +93,18 @@ export const Contact = () => {
 
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            width: '100%',
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
             mt: 2,
-            height: '300px',
+            height: "300px",
             borderRadius: 1,
-            overflow: 'hidden',
-            '& .leaflet-container': {
-              width: '100% !important',
-              height: '100% !important',
-              zIndex: 1
-            }
+            overflow: "hidden",
+            "& .leaflet-container": {
+              width: "100% !important",
+              height: "100% !important",
+              zIndex: 1,
+            },
           }}
         >
           <Map position={position} mapRef={mapRef} />
