@@ -1,111 +1,124 @@
 import {
   Box,
-  Button,
   Container,
-  Grid,
   Paper,
-  TextField,
-  Typography
+  Typography,
+  IconButton
 } from '@mui/material';
-import { useState } from 'react';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import Map from '../../components/Map/Map';
+import { useRef } from 'react';
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const position = [-21.47230429755037, -43.12305091806953];
+  const mapRef = useRef(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add form submission logic here
-    console.log(formData);
+  const handleCenterMap = () => {
+    if (mapRef.current) {
+      mapRef.current.setView(position, 16);
+    }
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" sx={{ 
+      position: 'relative',
+        zIndex: 1,
+        mb: 2,
+        marginBottom: '140px',
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
       <Paper elevation={3} sx={{ p: 4, mt: 4 }}>
-        <Box component="form" onSubmit={handleSubmit}>
-          <Typography
-            variant="h4"
-            component="h1"
-            color="primary"
-            gutterBottom
-            textAlign="center"
-            sx={{ mb: 3 }}
-          >
-            Entre em Contato
-          </Typography>
-          
+        <Typography
+          variant="h4"
+          component="h1"
+          color="primary"
+          gutterBottom
+          textAlign="center"
+          sx={{ mb: 3 }}
+        >
+          Fale Conosco
+        </Typography>
+
+        <Typography
+          variant="h6"
+          color="text.secondary"
+          textAlign="center"
+          sx={{ mb: 2 }}
+        >
+          Envie sua mensagem
+        </Typography>
+
+        <Typography
+          variant="h5"
+          textAlign="center"
+          sx={{ mb: 4, fontWeight: 'bold' }}
+        >
+          32 99992-0658
+        </Typography>
+
+        <Paper
+          elevation={0}
+          sx={{
+            p: 2,
+            mb: 2,
+            backgroundColor: '#f5f5f5',
+            borderRadius: 2,
+            width: '30%',
+            mx: 'auto'
+          }}
+        >
           <Typography
             variant="body1"
-            color="text.secondary"
             textAlign="center"
-            sx={{ mb: 4 }}
           >
-            Ficaremos felizes em ajudar! Preencha o formulário abaixo para entrar em contato conosco.
+            CEP 36150
+            <br />
+            Rua Jacob da Paixao, 115
+            <br />
+            Rio Novo - MG
           </Typography>
+        </Paper>
 
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Nome"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </Grid>
-            
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </Grid>
-            
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Mensagem"
-                name="message"
-                multiline
-                rows={4}
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </Grid>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            mt: 2
+          }}
+        >
+          <IconButton
+            color="primary"
+            size="large"
+            aria-label="location"
+            onClick={handleCenterMap}
+          >
+            <LocationOnIcon sx={{ fontSize: 40 }} />
+          </IconButton>
+        </Box>
 
-            <Grid item xs={12}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                size="large"
-                fullWidth
-                sx={{ mt: 2 }}
-              >
-                Enviar Mensagem
-              </Button>
-            </Grid>
-          </Grid>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            width: '100%',
+            mt: 2,
+            height: '300px',
+            borderRadius: 1,
+            overflow: 'hidden',
+            '& .leaflet-container': {
+              width: '100% !important',
+              height: '100% !important',
+              zIndex: 1
+            }
+          }}
+        >
+          <Map position={position} mapRef={mapRef} />
         </Box>
       </Paper>
     </Container>
   );
 };
+
+export default Contact;
