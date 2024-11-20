@@ -6,12 +6,13 @@ export const MainContainer = ({ children }) => {
     <Box
       sx={{
         width: "100%",
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 64px)",
         padding: { xs: "10px", sm: "20px" },
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
+        marginBottom: "64px",
       }}
     >
       {children}
