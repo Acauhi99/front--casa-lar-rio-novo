@@ -1,7 +1,11 @@
 import "@testing-library/jest-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { Contact } from "./Contact";
+
+vi.mock('../../components/Map/Map', () => ({
+  default: () => <div data-testid="map">Map Component</div>
+}));
 
 describe("Contact Component", () => {
   it("should render without crashing", () => {
@@ -9,54 +13,33 @@ describe("Contact Component", () => {
     expect(container).toBeDefined();
   });
 
-  it("should display the correct header text", () => {
+  it("should display the main header", () => {
     render(<Contact />);
-    expect(screen.getByText("Entre em Contato")).toBeInTheDocument();
+    expect(screen.getByText("Fale Conosco")).toBeInTheDocument();
   });
 
-  it("should display the introductory paragraph", () => {
+  it("should display the subheader", () => {
     render(<Contact />);
-    expect(
-      screen.getByText(
-        "Ficaremos felizes em ajudar! Preencha o formulário abaixo para entrar em contato conosco."
-      )
-    ).toBeInTheDocument();
+    expect(screen.getByText("Envie sua mensagem")).toBeInTheDocument();
   });
 
-  it("should have a submit button with the correct text", () => {
+  it("should display the phone number", () => {
     render(<Contact />);
-    const submitButton = screen.getByRole("button", {
-      name: /enviar mensagem/i,
-    });
-    expect(submitButton).toBeInTheDocument();
-    expect(submitButton).toHaveAttribute("type", "submit");
+    expect(screen.getByText("32 99992-0658")).toBeInTheDocument();
   });
 
-  it("should allow input of name, email, and message", () => {
+  it("should display the address", () => {
     render(<Contact />);
-
-    const nameInput = screen.getByLabelText(/nome/i);
-    const emailInput = screen.getByLabelText(/email/i);
-    const messageInput = screen.getByLabelText(/mensagem/i);
-
-    fireEvent.change(nameInput, { target: { value: "João Silva" } });
-    fireEvent.change(emailInput, { target: { value: "joao@exemplo.com" } });
-    fireEvent.change(messageInput, { target: { value: "Mensagem de teste" } });
-
-    expect(nameInput).toHaveValue("João Silva");
-    expect(emailInput).toHaveValue("joao@exemplo.com");
-    expect(messageInput).toHaveValue("Mensagem de teste");
+    const addressText = screen.getByText((content) => 
+      content.includes("CEP 36150") && 
+      content.includes("Rua Jacob da Paixao, 115") && 
+      content.includes("Rio Novo - MG")
+    );
+    expect(addressText).toBeInTheDocument();
   });
 
-  it("should have required fields", () => {
+  it("should have a location button", () => {
     render(<Contact />);
-
-    const nameInput = screen.getByLabelText(/nome/i);
-    const emailInput = screen.getByLabelText(/email/i);
-    const messageInput = screen.getByLabelText(/mensagem/i);
-
-    expect(nameInput).toHaveAttribute("required");
-    expect(emailInput).toHaveAttribute("required");
-    expect(messageInput).toHaveAttribute("required");
+    expect(screen.getByRole("button", { name: /location/i })).toBeInTheDocument();
   });
 });
