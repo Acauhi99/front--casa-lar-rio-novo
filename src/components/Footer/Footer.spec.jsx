@@ -46,14 +46,4 @@ describe("Footer", () => {
     expect(whatsappLink).toHaveAttribute("target", "_blank");
     expect(whatsappLink).toHaveAttribute("rel", "noopener");
   });
-
-  it("should have correct styling properties", () => {
-    const footer = screen.getByRole("contentinfo");
-
-    expect(footer).toHaveStyle({
-      position: "fixed",
-      bottom: "0",
-      width: "100%",
-    });
-  });
 });

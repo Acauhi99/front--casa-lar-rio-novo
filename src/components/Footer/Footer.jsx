@@ -12,8 +12,6 @@ export const Footer = () => {
         color: "background.default",
         paddingY: 3,
         paddingX: { xs: 2, sm: 4 },
-        position: "fixed",
-        bottom: 0,
         width: "100%",
         boxShadow: "0 -1px 4px rgba(0, 0, 0, 0.2)",
       }}

@@ -13,6 +13,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import GroupIcon from "@mui/icons-material/Group";
 import PropTypes from "prop-types";
+import Banner from "../../components/Banner/Banner";
 
 const StyledCard = styled(Card)(() => ({
   textAlign: "left",
@@ -144,6 +145,7 @@ export const Home = () => {
 
   return (
     <Container sx={{ textAlign: "center" }}>
+      <Banner />
       <Typography
         variant="h5"
         sx={{

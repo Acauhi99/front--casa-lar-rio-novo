@@ -26,7 +26,7 @@ export const About = () => {
       sx={{
         textAlign: "center",
         marginTop: "40px",
-        marginBottom: "80px", 
+        marginBottom: "80px",
       }}
     >
       <Typography
@@ -34,8 +34,7 @@ export const About = () => {
         sx={{
           fontWeight: "bold",
           color: "primary.main",
-          fontSize: "2.5rem",
-          marginTop: "100px", 
+          marginTop: "100px",
           marginBottom: "40px",
         }}
       >
@@ -44,7 +43,7 @@ export const About = () => {
 
       <Box sx={{ marginBottom: "24px" }}>
         <img
-          src="/public/frente-asilo.png"
+          src="/frente-asilo.png"
           alt="Instituição"
           style={{
             maxWidth: "100%",
@@ -61,7 +60,6 @@ export const About = () => {
             sx={{
               fontWeight: "bold",
               color: "primary.main",
-              fontSize: "2rem",
               marginBottom: "16px",
             }}
           >
@@ -79,8 +77,8 @@ export const About = () => {
             <strong>Homenagem ao Patrono</strong>
             <br />
             Em 1918, ano da fundação da Casa Lar Cônego Augusto França, então
-            chamada de <b>Albergue dos Pobres</b>, o jornal "109" publicou um artigo
-            especial em homenagem ao patrono da instituição:
+            chamada de <b>Albergue dos Pobres</b>, o jornal "109" publicou um
+            artigo especial em homenagem ao patrono da instituição:
             <blockquote>
               "Ocorreu neste mês de novembro a data natalícia do venerando
               Cônego Agostinho Augusto França, vulto acatado do eminente Clero
@@ -109,7 +107,10 @@ export const About = () => {
                 Conclusão da construção da antiga Igreja Matriz de Nossa Senhora
                 da Conceição, padroeira do município.
               </li>
-              <li>Construção da Capela Senhor dos Passos e da Igreja São Sebastião.</li>
+              <li>
+                Construção da Capela Senhor dos Passos e da Igreja São
+                Sebastião.
+              </li>
               <li>
                 Fundação e manutenção da Santa Casa de Misericórdia e do Asilo
                 Casa Lar.
@@ -138,7 +139,6 @@ export const About = () => {
             sx={{
               fontWeight: "bold",
               color: "primary.main",
-              fontSize: "2rem",
               marginBottom: "16px",
             }}
           >
