@@ -5,29 +5,27 @@ import {
   Grid,
   Paper,
   TextField,
-  Typography
-} from '@mui/material';
-import { useState } from 'react';
+  Typography,
+} from "@mui/material";
+import { useState } from "react";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add form submission logic here
-    console.log(formData);
   };
 
   return (
@@ -44,14 +42,15 @@ export const Contact = () => {
           >
             Entre em Contato
           </Typography>
-          
+
           <Typography
             variant="body1"
             color="text.secondary"
             textAlign="center"
             sx={{ mb: 4 }}
           >
-            Ficaremos felizes em ajudar! Preencha o formulário abaixo para entrar em contato conosco.
+            Ficaremos felizes em ajudar! Preencha o formulário abaixo para
+            entrar em contato conosco.
           </Typography>
 
           <Grid container spacing={3}>
@@ -65,7 +64,7 @@ export const Contact = () => {
                 required
               />
             </Grid>
-            
+
             <Grid item xs={12}>
               <TextField
                 fullWidth
@@ -77,7 +76,7 @@ export const Contact = () => {
                 required
               />
             </Grid>
-            
+
             <Grid item xs={12}>
               <TextField
                 fullWidth
