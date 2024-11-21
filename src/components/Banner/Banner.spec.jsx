@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 import "@testing-library/jest-dom";
 import Banner from "./Banner";
@@ -21,13 +22,21 @@ vi.mock("swiper/modules", () => ({
 
 describe("Banner Component", () => {
   it("renders the Banner component with correct number of slides", () => {
-    render(<Banner />);
+    render(
+      <MemoryRouter>
+        <Banner />
+      </MemoryRouter>
+    );
     const slides = screen.getAllByTestId("swiper-slide");
     expect(slides.length).toBe(3);
   });
 
   it("renders the correct content for each slide", () => {
-    render(<Banner />);
+    render(
+      <MemoryRouter>
+        <Banner />
+      </MemoryRouter>
+    );
     const slides = screen.getAllByTestId("swiper-slide");
 
     const expectedContent = [
@@ -40,13 +49,13 @@ describe("Banner Component", () => {
       {
         title: "Cuidados Humanizados",
         description: "Oferecemos cuidado e acolhimento com amor e dedicação.",
-        primaryButton: "Nossos Serviços",
+        primaryButton: "Saiba Mais",
         secondaryButton: "Doar Agora",
       },
       {
         title: "Juntos Somos Mais Fortes",
         description: "Ajude a construir um futuro melhor para nossos idosos.",
-        primaryButton: "Conheça Mais",
+        primaryButton: "Saiba Mais",
         secondaryButton: "Doar Agora",
       },
     ];
@@ -61,10 +70,12 @@ describe("Banner Component", () => {
   });
 
   it("renders buttons with correct styles", () => {
-    render(<Banner />);
-    const primaryButtons = screen.getAllByText(
-      /Saiba Mais|Nossos Serviços|Conheça Mais/
+    render(
+      <MemoryRouter>
+        <Banner />
+      </MemoryRouter>
     );
+    const primaryButtons = screen.getAllByText(/Saiba Mais/);
     const secondaryButtons = screen.getAllByText("Doar Agora");
 
     primaryButtons.forEach((button) => {

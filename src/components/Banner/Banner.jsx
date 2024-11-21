@@ -70,7 +70,6 @@ const Banner = () => {
                 overflow: "hidden",
               }}
             >
-              {/* Imagem de fundo */}
               <Box
                 sx={{
                   position: "absolute",
@@ -85,7 +84,6 @@ const Banner = () => {
                 }}
               />
 
-              {/* Sobreposição preta transparente */}
               <Box
                 sx={{
                   position: "absolute",
