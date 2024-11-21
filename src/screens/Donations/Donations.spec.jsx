@@ -27,7 +27,7 @@ describe("Donations Component", () => {
     render(<Donations />);
     const image = screen.getByAltText("Imagem de Doação");
     expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute("src", "/Imagem-Pagina-Donation.png");
+    expect(image).toHaveAttribute("src", "/fotoqualidademelhorada.png");
   });
 
   it("should display bank details correctly", () => {

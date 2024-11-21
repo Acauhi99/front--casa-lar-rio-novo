@@ -43,7 +43,7 @@ export const About = () => {
 
       <Box sx={{ marginBottom: "24px" }}>
         <img
-          src="/frente-asilo.png"
+          src="/frente-asilo-transformed.png"
           alt="Instituição"
           style={{
             maxWidth: "100%",

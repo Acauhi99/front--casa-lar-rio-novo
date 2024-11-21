@@ -66,7 +66,7 @@ export const Contact = () => {
           }}
         >
           <Typography variant="body1" textAlign="center">
-            CEP 36150
+            CEP 36150-000
             <br />
             Rua Jacob da Paixao, 115
             <br />

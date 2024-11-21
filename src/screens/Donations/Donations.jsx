@@ -59,7 +59,7 @@ export const Donations = () => {
       <Box sx={{ display: "flex", justifyContent: "center", marginY: 3 }}>
         <CardMedia
           component="img"
-          src="/Imagem-Pagina-Donation.png"
+          src="/fotoqualidademelhorada.png"
           alt="Imagem de Doação"
           sx={{
             maxWidth: "100%",
