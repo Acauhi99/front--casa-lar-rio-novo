@@ -8,21 +8,21 @@ import { useTheme } from "@mui/material/styles";
 
 const slides = [
   {
-    image: "/foto1.jpg",
+    image: "/frente-asilo-transformed.png",
     title: "Transforme Vidas",
     description: "Apoie a nossa missão de cuidar de quem mais precisa.",
     primaryButton: "Saiba Mais",
     secondaryButton: "Doar Agora",
   },
   {
-    image: "/foto1.jpg",
+    image: "/fotoidosos.jpg",
     title: "Cuidados Humanizados",
     description: "Oferecemos cuidado e acolhimento com amor e dedicação.",
     primaryButton: "Nossos Serviços",
     secondaryButton: "Doar Agora",
   },
   {
-    image: "/foto1.jpg",
+    image: "/fotoqualidademelhorada.png",
     title: "Juntos Somos Mais Fortes",
     description: "Ajude a construir um futuro melhor para nossos idosos.",
     primaryButton: "Conheça Mais",
@@ -49,7 +49,7 @@ const Banner = () => {
     >
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 4500, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
         simulateTouch={true}
@@ -61,17 +61,15 @@ const Banner = () => {
             <Box
               sx={{
                 height: "70vh",
-                backgroundImage: `url(${slide.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+                position: "relative",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#fff",
                 textAlign: "center",
-                position: "relative",
+                overflow: "hidden",
               }}
             >
+              {/* Imagem de fundo */}
               <Box
                 sx={{
                   position: "absolute",
@@ -79,12 +77,31 @@ const Banner = () => {
                   left: 0,
                   width: "100%",
                   height: "100%",
+                  backgroundImage: `url(${slide.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  zIndex: 1,
                 }}
               />
+
+              {/* Sobreposição preta transparente */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(0, 0, 0, 0.5)", 
+                  zIndex: 2,
+                }}
+              />
+
               <Container
                 sx={{
                   position: "relative",
-                  zIndex: 1,
+                  zIndex: 3,
+                  color: "#fff", 
                 }}
               >
                 <Typography
@@ -92,7 +109,6 @@ const Banner = () => {
                   sx={{
                     fontWeight: "bold",
                     marginBottom: "16px",
-                    color: theme.palette.primary.main,
                   }}
                 >
                   {slide.title}
@@ -101,7 +117,6 @@ const Banner = () => {
                   variant="h6"
                   sx={{
                     marginBottom: "32px",
-                    color: theme.palette.secondary.main,
                   }}
                 >
                   {slide.description}
@@ -113,23 +128,17 @@ const Banner = () => {
                     gap: 2,
                   }}
                 >
-                  <Button
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                    sx={{}}
-                  >
+                  <Button variant="contained" size="large" color="primary">
                     {slide.primaryButton}
                   </Button>
                   <Button
                     variant="outlined"
                     size="large"
                     sx={{
-                      color: theme.palette.primary.main,
-                      borderColor: theme.palette.primary.main,
-
+                      color: "#fff",
+                      borderColor: "#fff",
                       "&:hover": {
-                        borderColor: theme.palette.secondary.main,
+                        borderColor: "rgba(255, 255, 255, 0.7)",
                       },
                     }}
                   >
