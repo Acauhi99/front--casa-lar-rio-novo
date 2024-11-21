@@ -146,7 +146,6 @@ const Banner = () => {
                         borderColor: "rgba(255, 255, 255, 0.7)",
                       },
                       textDecoration: "none",
-                      color: "inherit",
                     }}
                     component={Link}
                     to="/donations"
