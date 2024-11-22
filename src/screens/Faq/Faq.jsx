@@ -26,7 +26,7 @@ const faqData = [
     id: 4,
     title: "O Asilo Casa Lar recebe apoio governamental?",
     content:
-      "O Asilo Casa Lar é uma instituição filantrópica e, por isso, não recebe apoio direto do governo. A manutenção da instituição é garantida pelas contribuições dos próprios residentes, o que nos permite oferecer um ambiente acolhedor e dedicado ao cuidado dos idosos.",
+      "O Asilo Casa Lar é uma instituição filantrópica, estando em dia com toda a documentação necessária para receber apoio governamental. Atualmente, sua manutenção é garantida principalmente por meio de doações de populares e recursos da comunidade local, como alimentos, materiais diversos e contribuições financeiras. A instituição pode receber apoio governamental, quando disponível, mas vive, prioritariamente, das doações da comunidade.",
   },
   {
     id: 5,
