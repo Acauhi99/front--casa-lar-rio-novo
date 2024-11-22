@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
@@ -18,14 +19,14 @@ const slides = [
     image: "/fotoidosos.jpg",
     title: "Cuidados Humanizados",
     description: "Oferecemos cuidado e acolhimento com amor e dedicação.",
-    primaryButton: "Nossos Serviços",
+    primaryButton: "Saiba Mais",
     secondaryButton: "Doar Agora",
   },
   {
     image: "/fotoqualidademelhorada.png",
     title: "Juntos Somos Mais Fortes",
     description: "Ajude a construir um futuro melhor para nossos idosos.",
-    primaryButton: "Conheça Mais",
+    primaryButton: "Saiba Mais",
     secondaryButton: "Doar Agora",
   },
 ];
@@ -69,7 +70,6 @@ const Banner = () => {
                 overflow: "hidden",
               }}
             >
-              {/* Imagem de fundo */}
               <Box
                 sx={{
                   position: "absolute",
@@ -84,7 +84,6 @@ const Banner = () => {
                 }}
               />
 
-              {/* Sobreposição preta transparente */}
               <Box
                 sx={{
                   position: "absolute",
@@ -92,7 +91,7 @@ const Banner = () => {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  backgroundColor: "rgba(0, 0, 0, 0.5)", 
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
                   zIndex: 2,
                 }}
               />
@@ -101,7 +100,7 @@ const Banner = () => {
                 sx={{
                   position: "relative",
                   zIndex: 3,
-                  color: "#fff", 
+                  color: "#fff",
                 }}
               >
                 <Typography
@@ -126,7 +125,11 @@ const Banner = () => {
                     display: "flex",
                     justifyContent: "center",
                     gap: 2,
+                    textDecoration: "none",
+                    color: "inherit",
                   }}
+                  component={Link}
+                  to="/about"
                 >
                   <Button variant="contained" size="large" color="primary">
                     {slide.primaryButton}
@@ -140,7 +143,10 @@ const Banner = () => {
                       "&:hover": {
                         borderColor: "rgba(255, 255, 255, 0.7)",
                       },
+                      textDecoration: "none",
                     }}
+                    component={Link}
+                    to="/donations"
                   >
                     {slide.secondaryButton}
                   </Button>
