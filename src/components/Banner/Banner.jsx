@@ -68,6 +68,7 @@ const Banner = () => {
                 justifyContent: "center",
                 textAlign: "center",
                 overflow: "hidden",
+                borderRadius: "20px",
               }}
             >
               <Box
