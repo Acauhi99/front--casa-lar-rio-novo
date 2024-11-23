@@ -144,14 +144,15 @@ export const Home = () => {
   ];
 
   return (
-    <Container sx={{ textAlign: "center" }}>
-      <Banner />
+    <Container sx={{ textAlign: "center", mt: 8 }}>
+      <Banner sx={{ mb: 6 }} />
       <Typography
         variant="h5"
         sx={{
           fontWeight: "bold",
           color: "primary.main",
           fontSize: "2.5rem",
+          marginTop: "64px",
           marginBottom: "32px",
         }}
         gutterBottom
